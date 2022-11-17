@@ -1,0 +1,22 @@
+body { 
+background-image: url(/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg);
+background-size: cover;
+height: 100vh;
+
+}
+
+.title {
+color: antiquewhite;
+
+h2 {
+
+    color: antiquewhite;
+}
+
+
+}
+.navbar {
+
+background-color: black;
+
+}
