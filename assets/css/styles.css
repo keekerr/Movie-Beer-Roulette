@@ -1,7 +1,7 @@
 body { 
 background-image: url(../images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg);
 background-size: cover;
-height: 100vh;
+min-height: 100vh;
 
 }
 
@@ -19,4 +19,9 @@ h2 {
 
 background-color: black;
 
+}
+
+.previous {
+
+  list-style: none;
 }
