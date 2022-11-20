@@ -1,7 +1,7 @@
 body { 
-background-image: url(/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg);
+background-image: url(../images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg);
 background-size: cover;
-height: 100vh;
+min-height: 100vh;
 
 }
 
@@ -24,4 +24,9 @@ background-color: black;
 .moviePoster {
     height: 600px;
     width: 600px;
+}
+
+.previous {
+
+  list-style: none;
 }
