@@ -7,16 +7,21 @@ height: 100vh;
 
 .title {
 color: antiquewhite;
+}
 
 h2 {
 
     color: antiquewhite;
-}
+};
 
 
-}
 .navbar {
 
 background-color: black;
 
+}
+
+.moviePoster {
+    height: 600px;
+    width: 600px;
 }
