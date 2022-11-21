@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Document</title>
+  </head>
+  <body class="bg-img">
+    <section class="section">
+        <div class="container">
+            <nav class="navbar">
+                <div class="navbar-start">
+                    <a href="" class="nav-item"></a>
+                <h1 class="title is-1">Movie Roulette</h1>
+                </div>
+
+                <div class="navbar-end nav-menu is-active">
+                    <button class="nav-item mt-3">Stored Searches</button>
+                
+                </div>
+            </nav>
+        </div>
+    </section>
+
+
+<div class="block">
+    <div class="columns">
+<!-- Thiis is the dropdown menu -->
+<section class=" section is-medium column is-4">
+            <div class="dropdown is-active">
+<div class="dropdown-trigger">
+    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+    <span>Dropdown button</span>
+    <span class="icon is-small">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+    </span>
+    </button>
+</div>
+<div class="dropdown-menu" id="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+    <a href="#" class="dropdown-item">
+        Dropdown item
+    </a>
+    <a class="dropdown-item">
+        Other dropdown item
+    </a>
+    <a href="#" class="dropdown-item">
+        Other dropdown item
+    </a>
+    
+    </div>
+    </div>
+</div>
+
+</section>
+
+        <section class="section is-medium column is-8">
+        <h2 class="title is-3 movieTitle">Here is your movie:</h2>
+
+        <img class='moviePoster'/>
+        <a class="movieLink column is-medium" target="_blank">Click here to see where you can watch this movie!</a>
+        <p class="column movieGenres">Genre: </p>
+        <div id="result-container" class="container has-background-white-ter">
+        </div>
+        </section>
+
+    </div>
+
+    <div class="block">
+        <div class="columns">
+            <section class="section is-medium column is-4">
+
+            <h2 class="title is-3">Previous Movies:</h2>
+            <ul class="previous has-background-white-ter">
+                <li>movie1</li>
+                <li>movie2</li>
+                <li>movie3</li>
+            </ul>
+                
+            </section>
+            <section class="section is-medium column is-8">
+            <h2 class="title is-3 movieDescription">Movie Description:</h2>
+
+            </div>
+            </section>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+
+</html>
