@@ -5,6 +5,12 @@ var movieLink = $('.movieLink');
 var movieGenres = $('.movieGenres');
 var apiKey = "a704608e266b5b21760a7bf37c54c312";
 
+// punkAPI Vars
+var startBtn = $('.btn')
+var beerName = $('.beerTitle')
+var descriptionDisplay = $('.beerDescription')
+var beerPoster = $('.beer5Poster')
+
 // getRandomInt is used to generate a random number, we're using it both to give us a random page, and random object from that page (this selects the actual movie that's displayed.)
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -35,3 +41,29 @@ function getMovie() {
 }
 
 getMovie();
+  
+    function getBeer(e) {
+    //   e.preventDefault()
+  
+      fetch('https://api.punkapi.com/v2/beers/random')
+        .then(response => {
+          return response.json()
+        })
+        .then(data => {
+          console.log(data)
+          var name = data[0].name
+          var description = data[0].description
+          var id = data[0].id
+          var beerImage = 'https://images.punkapi.com/v2/' + id + '.png'
+
+          beerPoster.attr('src' , beerImage)
+
+  console.log(name)
+  console.log(description)
+  console.log(beerImage)
+  console.log(id)
+        })
+    }
+  
+    // startBtn.addEventListener('click', getData)
+    getBeer()
