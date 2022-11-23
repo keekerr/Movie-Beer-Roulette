@@ -6,6 +6,12 @@ var movieGenres = $('.movieGenres');
 var apiKey = "a704608e266b5b21760a7bf37c54c312";
 var randomYear;
 
+// punkAPI Vars
+var startBtn = $('.btn')
+var beerName = $('.beerTitle')
+var descriptionDisplay = $('.beerDescription')
+var beerPoster = $('.beer5Poster')
+
 // getRandomInt is used to generate a random number, we're using it both to give us a random page, and random object from that page (this selects the actual movie that's displayed.) -JL
 // Source for getRandomInt: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random -JL
 function getRandomInt(max) {
@@ -16,6 +22,29 @@ function randomIntFromInterval(min, max) { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+function getBeer() {
+    fetch('https://api.punkapi.com/v2/beers/random')
+    .then(response => {
+        return response.json()
+    })
+    .then(data => {
+        console.log(data)
+        var name = data[0].name
+        var description = data[0].description
+        var id = data[0].id
+        var beerImage = data[0].image_url
+
+        if(!beerImage){
+        beerPoster.attr('src' , 'https://via.placeholder.com/600x600/000000/6e0000?text=No+Image+Available')
+        } else {
+        beerPoster.attr('src' , beerImage)
+        }
+        beerName.text(`Beer Name: ${name}`)
+        descriptionDisplay.text(`Beer Description: ${description}`)
+    })
+}
+
+// Main function to pull a random movie, pulling from TheMovieDb API. The second pull in this function is for the genre, the main method of pulling we're using only gives us a genre ID, and not the actual genre.
 function getMovie() {
     var movieQuery = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${getRandomInt(500)}&with_genres=Action&with_watch_monetization_types=flatrate`;
     movieTitle.empty();
@@ -67,6 +96,7 @@ function getMovieByYear() {
 $('.byYearBtn').click(function (e) { 
     e.preventDefault();
     getMovieByYear();
+    getBeer();
     console.log(randomYear);
 });
 
@@ -74,4 +104,5 @@ $('.byYearBtn').click(function (e) {
 $('#generateBtn').click(function(e) {
     e.preventDefault;
     getMovie();
+    getBeer();
 })
