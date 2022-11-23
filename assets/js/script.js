@@ -54,14 +54,15 @@ getMovie();
           var name = data[0].name
           var description = data[0].description
           var id = data[0].id
-          var beerImage = 'https://images.punkapi.com/v2/' + id + '.png'
+          var beerImage = data[0].image_url
 
-          beerPoster.attr('src' , beerImage)
-
-  console.log(name)
-  console.log(description)
-  console.log(beerImage)
-  console.log(id)
+          if(!beerImage){
+            beerPoster.attr('src' , 'https://via.placeholder.com/200')
+          } else {
+            beerPoster.attr('src' , beerImage)
+          }
+          beerName.text(`Beer Name: ${name}`)
+          descriptionDisplay.text(`Beer Description: ${description}`)
         })
     }
   
