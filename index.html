@@ -13,23 +13,26 @@
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <title>Document</title>
+    <title>Movie and Beer Roulette</title>
   </head>
   <body class="bg-img">
     <section class="section ">
       <div class="container">
-        <nav class="navbar has-background-black">
-          <div class="navbar-start">
-            <a href="" class="nav-item"></a>
-            <h1 class="title is-1 ">Movie Roulette</h1>
-          </div>
-
-          <div class="navbar-end nav-menu is-active">
-            <button class="button is-dark nav-item mt-3">Stored Searches</button>
-          </div>
+        <nav class="header has-background-black has-text-centered">
+          
+          <h1 class="title is-1">Movie and Beer Roulette</h1>
+          <h2 class="title is 4">Feeling Adventerous? Click the Button, See What You Get!</h2>
+                
         </nav>
       </div>
     </section>
+
+  <!-- Here is the new Generate button -->
+    <div class="block columns">
+      <div class="column is-4 is-offset-5">
+        <button id="generateBtn" class="button is-large is-dark">Generate Choices</button>
+      </div>
+    </div>  
 
     <main class="columns">
         <!-- This is the new movie section (DI) -->
@@ -47,6 +50,9 @@
         <a class="movieLink column is-medium" target="_blank"
           >Click here to see where you can watch this movie!</a>
         <p class="column movieGenres">Genre:</p>
+
+        <button class=" button is-small is-dark">Like Button</button>
+
         <div
           id="result-container"
           class="container has-background-white-ter"
@@ -56,13 +62,11 @@
 
       <!-- This is the new Beer Section (DI) -->
       <section class="column m-1 is-4">
-        <button class=" button is-dark">Button</button>
         <h2 class="title is-3 beerTitle">Here is Your Beer:</h2>
-
+        
         <img class="beer5Poster" src="https://via.placeholder.com/600x600/000000/6e0000?text=No+Image+Available"/>
-        <a class="beerLink column is-medium" target="_blank"
-          >Beer Information!</a
-        >
+        
+        <button class=" button is-small is-dark">Like Button</button>
 
         <div
           id="beerResult-container"
@@ -86,7 +90,7 @@
       <section class="section is-medium">
         <!-- This is the new Beer Results Section (DI) -->
         <div id="pastBeer-container" class="container is-medium my-10">
-          <h2 class="title is-3 beerDescription">Beer Description:</h2>
+          <h2 class="title is-3 beerDescription">Previous Beer:</h2>
           <ul>
             <li>One</li>
             <li>two</li>
@@ -98,13 +102,7 @@
 
     </main>
 
-    <!-- Here is the new Generate button -->
-    <div class="block columns">
-      <div class="column is-4 is-offset-4">
-        <button id="generateBtn" class="button is-large is-dark">Generate Choices</button>
-      </div>
-    </div>
-
+   
     <script
       src="https://code.jquery.com/jquery-3.6.1.min.js"
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
