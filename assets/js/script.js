@@ -5,6 +5,9 @@ var movieLink = $('.movieLink');
 var movieGenres = $('.movieGenres');
 var apiKey = "a704608e266b5b21760a7bf37c54c312";
 var randomYear;
+var searchLikes = JSON.parse(localStorage.getItem("movieTitles"))||[]
+var storageMovie = []
+var currentMovieTitle = ""
 
 // punkAPI Vars
 var startBtn = $('.btn')
@@ -66,6 +69,7 @@ function getMovie() {
         movieDescription.text(`Movie Description: ${movieRespone.overview}`);
         console.log(movieRespone.original_title)
         console.log(movieRespone.overview);
+        currentMovieTitle = movieRespone.original_title
     })
 }
 
@@ -106,3 +110,13 @@ $('#generateBtn').click(function(e) {
     getMovie();
     getBeer();
 })
+
+// Local Storage Button
+$('#likeMovie').click(function(){
+    storageMovie.push(currentMovieTitle)
+    localStorage.setItem("movieTitles",JSON.stringify(storageMovie))
+    console.log(currentMovieTitle);
+}) 
+
+// Render Likes to screen
+// forloop with search likes.
