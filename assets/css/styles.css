@@ -21,8 +21,8 @@ background-color: black;
 
 }
 
-.moviePoster {
-    height: 600px;
+.moviePoster, .beer5Poster {
+    height: 700px;
     width: 600px;
 }
 
