@@ -5,15 +5,18 @@ var movieLink = $('.movieLink');
 var movieGenres = $('.movieGenres');
 var apiKey = "a704608e266b5b21760a7bf37c54c312";
 var randomYear;
-var storedMovies = [];
-var storedBeer = [];
-var movie = '';
+var searchLikes = JSON.parse(localStorage.getItem("movieTitles"))||[]
+var storageMovie = []
+var currentMovieTitle = ""
 
 // punkAPI Vars
 var startBtn = $('.btn')
 var beerName = $('.beerTitle')
 var descriptionDisplay = $('.beerDescription')
 var beerPoster = $('.beer5Poster')
+var searchLikesBeer = JSON.parse(localStorage.getItem("beerNames"))||[]
+var storageBeer = []
+var currentBeerName = ""
 
 // getRandomInt is used to generate a random number, we're using it both to give us a random page, and random object from that page (this selects the actual movie that's displayed.) -JL
 // Source for getRandomInt: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random -JL
@@ -43,8 +46,9 @@ function getBeer() {
         }
         beerName.text(`Beer Name: ${name}`)
         descriptionDisplay.text(`Beer Description: ${description}`)
-    })
-}
+        // currentBeerName = see line 76
+    }
+)}
 
 // Main function to pull a random movie, pulling from TheMovieDb API. The second pull in this function is for the genre, the main method of pulling we're using only gives us a genre ID, and not the actual genre. The second pull is only grabbing the movie's genre for us and then appending it to the page.
 function getMovie() {
@@ -65,6 +69,9 @@ function getMovie() {
         movieLink.attr('href', whereToWatch);
         $('.result-container').append(movieLink);
         movieDescription.text(`Movie Description: ${movieRespone.overview}`);
+        console.log(movieRespone.original_title)
+        console.log(movieRespone.overview);
+        currentMovieTitle = movieRespone.original_title
     })
 }
 
@@ -87,6 +94,9 @@ function getMovieByYear() {
         movieLink.attr('href', whereToWatch);
         $('.result-container').append(movieLink);
         movieDescription.text(`Movie Description: ${movieRespone.overview}`);
+        console.log(movieRespone.original_title)
+        console.log(movieRespone);
+    
     })
 }
 
@@ -103,14 +113,33 @@ $('#generateBtn').click(function(e) {
     getBeer();
 })
 
-$('.likeButtonMovie').click(function(e) {
-    e.preventDefault;
+// Local Storage Button for Movie
+$('#likeMovie').click(function(){
+    storageMovie.push(currentMovieTitle)
+    localStorage.setItem("movieTitles",JSON.stringify(storageMovie))
+    console.log(currentMovieTitle);
+}) 
 
-    if(!movieTitle) {
+// Local Storage Button for Beer
+$('#likeBeer').click(function(){
+    storageBeer.push(currentBeerName)
+    localStorage.setItem("beerNames",JSON.stringify(storageBeer))
+    console.log(currentBeerName);
+}) 
+
+// Render likes for movie.
+function rederLikes() {
+    if (searchLikes !== null) {
+      
+    }else {
         return;
-    };
-
-    // storedMovies.push($('.movieTitle').textcontent);
-    // console.log(storedMovies);
-    localStorage.setItem('movie', $('.movieTitle').text());
-})
+    }
+}
+// Render likes for beer
+function rederLikes() {
+    if (searchLikes !== null) {
+      
+    }else {
+        return;
+    }
+}
