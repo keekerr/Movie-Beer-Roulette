@@ -47,7 +47,7 @@ function getBeer() {
         }
         beerName.text(`Beer Name: ${name}`)
         descriptionDisplay.text(`Beer Description: ${description}`)
-        // currentBeerName = see line 76
+        currentBeerName = name
     }
 )}
 
@@ -124,25 +124,9 @@ $('#likeMovie').click(function(){
 }) 
 
 // Local Storage Button for Beer
-$('#likeBeer').click(function(){
+$('.likeBeer').click(function(){
     storageBeer.push(currentBeerName)
     localStorage.setItem("beerNames",JSON.stringify(storageBeer))
     console.log(currentBeerName);
 }) 
 
-// Render likes for movie.
-function rederLikes() {
-    if (searchLikes !== null) {
-      
-    }else {
-        return;
-    }
-}
-// Render likes for beer
-function rederLikes() {
-    if (searchLikes !== null) {
-      
-    }else {
-        return;
-    }
-}
