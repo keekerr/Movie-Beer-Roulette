@@ -135,6 +135,7 @@ searchLikes = JSON.parse(localStorage.getItem("movieTitles"))||[]
 
 // Local Storage Button for Beer
 $('#likeBeer').click(function(){
+
     storageBeer.push(currentBeerName)
     localStorage.setItem("beerNames",JSON.stringify(storageBeer))
     console.log(currentBeerName);
@@ -146,13 +147,14 @@ $('#likeBeer').click(function(){
 function saveMovie() {
 searchLikes = JSON.parse(localStorage.getItem("movieTitles"))||[]
 //console.log(searchLikes)
+
     localStorage.setItem("movieTitles",JSON.stringify(storageMovie))
 
     //Populates movie ul
     mList.empty()  
-    for(var i = 0; i < storageMovie.length; i += 1)
-    {
-    
+
+    for(var i = 0; i < searchLikes.length; i += 1)
+    {    
     var liTag = document.createElement('li');
     liTag.textContent =  searchLikes[i];
     $(mList).append(liTag);  
@@ -162,8 +164,10 @@ searchLikes = JSON.parse(localStorage.getItem("movieTitles"))||[]
     }
     console.log(storageMovie)
     saveMovie();
+
+
 // Render likes for beer
-function rederLikes() {
+function renderLikes() {
     if (searchLikes !== null) {
     
     }else {
