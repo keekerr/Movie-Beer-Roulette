@@ -114,31 +114,59 @@ $('#generateBtn').click(function(e) {
 })
 
 // Local Storage Button for Movie
+// Local Storage Button
+var mList = $('#movieList');
+
 $('#likeMovie').click(function(){
+
+searchLikes = JSON.parse(localStorage.getItem("movieTitles"))||[]
+
+
     storageMovie.push(currentMovieTitle)
+    
     localStorage.setItem("movieTitles",JSON.stringify(storageMovie))
-    console.log(currentMovieTitle);
+    //console.log(currentMovieTitle);
+    
+    saveMovie();
 }) 
 
 // Local Storage Button for Beer
 $('#likeBeer').click(function(){
+
     storageBeer.push(currentBeerName)
     localStorage.setItem("beerNames",JSON.stringify(storageBeer))
     console.log(currentBeerName);
 }) 
 
-// Render likes for movie.
-function rederLikes() {
-    if (searchLikes !== null) {
-      
-    }else {
-        return;
+// Render Likes to screen
+// forloop with search likes.
+
+function saveMovie() {
+searchLikes = JSON.parse(localStorage.getItem("movieTitles"))||[]
+//console.log(searchLikes)
+
+    localStorage.setItem("movieTitles",JSON.stringify(storageMovie))
+
+    //Populates movie ul
+    mList.empty()  
+
+    for(var i = 0; i < searchLikes.length; i += 1)
+    {    
+    var liTag = document.createElement('li');
+    liTag.textContent =  searchLikes[i];
+    $(mList).append(liTag);  
+    }    
+            
+    
     }
-}
+    console.log(storageMovie)
+    saveMovie();
+
+
 // Render likes for beer
-function rederLikes() {
+function renderLikes() {
     if (searchLikes !== null) {
-      
+    
     }else {
         return;
     }
