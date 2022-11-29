@@ -5,8 +5,7 @@ var movieLink = $('.movieLink');
 var movieGenres = $('.movieGenres');
 var apiKey = "a704608e266b5b21760a7bf37c54c312";
 var randomYear;
-var searchLikes = JSON.parse(localStorage.getItem("movieTitles"))||[]
-var storageMovie = []
+var storageMovie = [];
 var currentMovieTitle = ""
 
 // punkAPI Vars
@@ -14,8 +13,7 @@ var startBtn = $('.btn')
 var beerName = $('.beerTitle')
 var descriptionDisplay = $('.beerDescription')
 var beerPoster = $('.beer5Poster')
-var searchLikesBeer = JSON.parse(localStorage.getItem("beerNames"))||[]
-var storageBeer = []
+var storageBeer = [];
 var currentBeerName = ""
 
 // getRandomInt is used to generate a random number, we're using it both to give us a random page, and random object from that page (this selects the actual movie that's displayed.) -JL
@@ -37,7 +35,6 @@ function getBeer() {
         console.log(data)
         var name = data[0].name
         var description = data[0].description
-        var id = data[0].id
         var beerImage = data[0].image_url
 
         if(!beerImage){
@@ -47,7 +44,7 @@ function getBeer() {
         }
         beerName.text(`Beer Name: ${name}`)
         descriptionDisplay.text(`Beer Description: ${description}`)
-        // currentBeerName = see line 76
+        currentBeerName = data[0].name
     }
 )}
 
@@ -71,8 +68,6 @@ function getMovie() {
         movieLink.attr('href', whereToWatch);
         $('.result-container').append(movieLink);
         movieDescription.text(`Movie Description: ${movieRespone.overview}`);
-        console.log(movieRespone.original_title)
-        console.log(movieRespone.overview);
         currentMovieTitle = movieRespone.original_title
     })
 }
@@ -96,8 +91,7 @@ function getMovieByYear() {
         movieLink.attr('href', whereToWatch);
         $('.result-container').append(movieLink);
         movieDescription.text(`Movie Description: ${movieRespone.overview}`);
-        console.log(movieRespone.original_title)
-        console.log(movieRespone);
+        currentMovieTitle = movieRespone.original_title;
     
     })
 }
@@ -118,59 +112,62 @@ $('#generateBtn').click(function(e) {
 
 // Local Storage Button for Movie
 // Local Storage Button
-var mList = $('#movieList');
+var movieList = $('#movieList');
 
 $('#likeMovie').click(function(){
-
-searchLikes = JSON.parse(localStorage.getItem("movieTitles"))||[]
-
-
-    storageMovie.push(currentMovieTitle)
-    
-    localStorage.setItem("movieTitles",JSON.stringify(storageMovie))
-    //console.log(currentMovieTitle);
-    
+    storageMovie.push(currentMovieTitle);
+    localStorage.setItem("movieTitles", JSON.stringify(storageMovie));
     saveMovie();
-}) 
+});
 
 // Local Storage Button for Beer
-$('#likeBeer').click(function(){
-
-    storageBeer.push(currentBeerName)
-    localStorage.setItem("beerNames",JSON.stringify(storageBeer))
-    console.log(currentBeerName);
+$('.likeBeer').click(function(){
+    storageBeer.push(currentBeerName);
+    localStorage.setItem("beerNames", JSON.stringify(storageBeer));
+    saveBeer();
 }) 
 
 // Render Likes to screen
 // forloop with search likes.
 
 function saveMovie() {
-searchLikes = JSON.parse(localStorage.getItem("movieTitles"))||[]
-//console.log(searchLikes)
-
-    localStorage.setItem("movieTitles",JSON.stringify(storageMovie))
-
+    movieLikes = JSON.parse(localStorage.getItem("movieTitles"))
     //Populates movie ul
-    mList.empty()  
+    movieList.empty()
 
-    for(var i = 0; i < searchLikes.length; i += 1)
+    for(var i = 0; i < movieLikes.length; i += 1)
     {    
     var liTag = document.createElement('li');
-    liTag.textContent =  searchLikes[i];
-    $(mList).append(liTag);  
-    }    
-            
-    
-    }
-    console.log(storageMovie)
-    saveMovie();
-
-
-// Render likes for beer
-function renderLikes() {
-    if (searchLikes !== null) {
-    
-    }else {
-        return;
-    }
+    liTag.textContent =  movieLikes[i];
+    $(movieList).append(liTag);  
+    }        
 }
+saveMovie();
+
+var beerList = $('#beerList');
+// Render likes for beer
+function saveBeer() {
+    beerLikes = JSON.parse(localStorage.getItem("beerNames"))
+    beerList.empty()
+
+    for(var i = 0; i < beerLikes.length; i += 1)
+    {    
+    var liTag = document.createElement('li');
+    liTag.textContent =  beerLikes[i];
+    $(beerList).append(liTag);  
+    }        
+}
+saveBeer()
+
+function init() {
+    var previousMovieFavorites = JSON.parse(localStorage.getItem('movieTitles'));
+        if(previousMovieFavorites !== null) {
+            storageMovie = previousMovieFavorites
+        };
+    var previousBeerFavorites = JSON.parse(localStorage.getItem('beerNames'));
+        if(previousBeerFavorites !== null) {
+            storageBeer = previousBeerFavorites
+        };
+}
+
+init();
