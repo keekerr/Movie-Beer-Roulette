@@ -1,17 +1,20 @@
 body { 
-background-image: url(../images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg);
+background-image: url(../images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg);alt="Movie Theatre background";
 background-size: cover;
 min-height: 100vh;
+/* font styyling changes  */
+font-family:Roboto, Georgia, 'Times New Roman', Times, serif;
+font-style:italic;
 
 }
 
 .title {
-color: antiquewhite;
+color: #fff;
 }
 
 h2 {
 
-    color: antiquewhite;
+    color: #fff;
 };
 
 
@@ -29,4 +32,19 @@ background-color: black;
 .previous {
 
   list-style: none;
+}
+/* button stylings sk */
+.button {
+  font-size:larger;
+  background-color: black;
+  color: #fff;
+  
+}
+.button:hover{
+  color:rgb(240, 26, 126);
+}
+.input{
+  color: #fff;
+  font-size:x-small;
+  
 }
