@@ -1,22 +1,32 @@
 body { 
 background-image: url(../images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg);
 background-size: cover;
-height: 100vh;
+min-height: 100vh;
 
 }
 
 .title {
 color: antiquewhite;
+}
 
 h2 {
 
     color: antiquewhite;
-}
+};
 
 
-}
 .navbar {
 
 background-color: black;
 
+}
+
+.moviePoster, .beer5Poster {
+    height: 700px;
+    width: 600px;
+}
+
+.previous {
+
+  list-style: none;
 }

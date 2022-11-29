@@ -4,81 +4,111 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>Movie and Beer Roulette</title>
   </head>
   <body class="bg-img">
-    <section class="section">
-        <div class="container">
-            <nav class="navbar">
-                <div class="navbar-start">
-                    <a href="" class="nav-item"></a>
-                <h1 class="title is-1">Movie Roulette</h1>
-                </div>
-
-                <div class="navbar-end nav-menu is-active">
-                    <button class="nav-item mt-3">Stored Searches</button>
+    <section class="section ">
+      <div class="container">
+        <nav class="header has-background-black has-text-centered">
+          
+          <h1 class="title is-1">Movie and Beer Roulette</h1>
+          <h2 class="title is 4">Feeling Adventerous? Click the Button, See What You Get!</h2>
                 
-                </div>
-            </nav>
-        </div>
+        </nav>
+      </div>
     </section>
 
+  <!-- Here is the new Generate button -->
+    <div class="block columns">
+      <div class="column is-4 is-offset-5">
+        <button id="generateBtn" class="button is-large is-dark">Click to See!</button>
+      </div>
+    </div>  
 
-<div class="block">
-    <div class="columns">
-<!-- Thiis is the dropdown menu -->
-<section class=" section is-medium column is-4">
-            <div class="dropdown is-active">
-<div class="dropdown-trigger">
-    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-    <span>Dropdown button</span>
-    <span class="icon is-small">
-        <i class="fa fa-angle-down" aria-hidden="true"></i>
-    </span>
-    </button>
-</div>
-<div class="dropdown-menu" id="dropdown-menu" role="menu">
-    <div class="dropdown-content">
-    <a href="#" class="dropdown-item">
-        Dropdown item
-    </a>
-    <a class="dropdown-item">
-        Other dropdown item
-    </a>
-    <a href="#" class="dropdown-item">
-        Other dropdown item
-    </a>
-    
-    </div>
-    </div>
-</div>
+    <main class="columns is-variable is-2">
+        <!-- This is the new movie section (DI) -->
+        
+      <div class="column is-1"></div>
+      <section class="column is-4">
+          <p>Generate by Decade!</p>
+          <input class='button byYearBtn is-dark is-small' type="button" value="1970s" onclick="randomYear = randomIntFromInterval(1970, 1979)"></input>
+          <input class='button byYearBtn is-dark is-small' type="button" value="1980s" onclick="randomYear = randomIntFromInterval(1980, 1989)"></input>
+          <input class='button byYearBtn is-dark is-small' type="button" value="1990s" onclick="randomYear = randomIntFromInterval(1990, 1999)"></input>
+          <input class='button byYearBtn is-dark is-small' type="button" value="2000s" onclick="randomYear = randomIntFromInterval(2000, 2009)"></input>
+          <input class='button byYearBtn is-dark is-small' type="button" value="2010s" onclick="randomYear = randomIntFromInterval(2010, 2019)"></input>
+          <input class='button byYearBtn is-dark is-small' type="button" value="2020s" onclick="randomYear = randomIntFromInterval(2020, 2022)"></input>
+        <h2 class="saveMovie title is-3 movieTitle">Here is your movie:</h2>
 
-</section>
+        <img class="moviePoster" src='https://via.placeholder.com/600x600/000000/6e0000?text=No+Image+Available'/>
+        <a class="movieLink column is-medium" target="_blank"
+          >Click here to see where you can watch this movie!</a>
+        <p class="column movieGenres">Genre:</p>
 
-        <section class="section is-medium column is-8">
-        <h2 class="title is-3">Here is your movie:</h2>
+        <button id="likeMovie" class="likeButtonMovie button is-small is-dark">Like Button</button>
 
-        <p id="movie-result"></p>
+        <div
+          id="result-container"
+          class="container"
+        >
+        <h2 class="title is-3 movieDescription">Movie Description:</h2>
 
-        </section>
-
-    </div>
-
-    <div class="block">
-        <div class="columns">
-            <div class="column"></div>
-            <section class="section is-medium column is-8">
-            <h2 class="title is-3">Movie information:</h2>
-
-            <div></div>
-            </section>
         </div>
-    </div>    
-    <script src="assets/js/js.script"></script>
-</body>
+      </section>
 
+      <!-- This is the new Beer Section (DI) -->
+      <section class="column m-1 is-4">
+        <h2 class="title is-3 beerTitle">Here is Your Beer:</h2>
+        
+        <img class="beer5Poster" src="https://via.placeholder.com/600x600/000000/6e0000?text=No+Image+Available"/>
+        
+        
+        <div
+        id="beerResult-container"
+        class="container"
+        >
+        <button class="likeBeer button is-small is-dark">Like Button</button>
+        <h2 class="title is-3 beerDescription">Beer Description:</h2>
+        </div>
+      </section>
 
+      <!--This is the new Movie Results Section (DI)-->
+      <div class="column m-1 is-3">
+      <section class="section mt-0 pt-8">
+        <div id="pastMovie-container" class="container mt-0">
+          <h2 class="title is-3 pastMovies">Liked Movies:</h2>
+          <ul id="movieList" class="has-text-white">
+            
+          </ul>
+        </div>
+      </section>  
+      <section class="section is-medium">
+        <!-- This is the new Beer Results Section (DI) -->
+        <div id="pastBeer-container" class="container is-medium my-10">
+          <h2 class="title is-3 previousBeer">Liked Beer:</h2>
+          <ul id="beerList" class="has-text-white">
+            
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    </main>
+
+   
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
