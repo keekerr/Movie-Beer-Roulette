@@ -33,3 +33,18 @@ background-color: black;
 
   list-style: none;
 }
+/* button stylings sk */
+.button {
+  font-size:larger;
+  background-color: black;
+  color: #fff;
+  
+}
+.button:hover{
+  color:rgb(240, 26, 126);
+}
+.input{
+  color: #fff;
+  font-size:x-small;
+  
+}
