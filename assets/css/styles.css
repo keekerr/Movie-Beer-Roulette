@@ -2,16 +2,19 @@ body {
 background-image: url(../images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg);
 background-size: cover;
 min-height: 100vh;
+/* font styyling changes  */
+font-family:Roboto, Georgia, 'Times New Roman', Times, serif;
+font-style:italic;
 
 }
 
 .title {
-color: antiquewhite;
+color: #fff;
 }
 
 h2 {
 
-    color: antiquewhite;
+    color: #fff;
 };
 
 
