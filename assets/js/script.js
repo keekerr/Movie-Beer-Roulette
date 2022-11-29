@@ -111,8 +111,8 @@ $('#generateBtn').click(function(e) {
     getBeer();
 })
 
-// Local Storage Button for Movie
-// Local Storage Button
+// Local Storage Button for Movie (KK)
+
 var movieList = $('#movieList');
 
 $('#likeMovie').click(function(){
@@ -128,8 +128,8 @@ $('.likeBeer').click(function(){
     saveBeer();
 }) 
 
-// Render Likes to screen
-// forloop with search likes.
+// Render Likes to screen frtom local storage (DI, JL)
+
 
 function saveMovie() {
     movieLikes = JSON.parse(localStorage.getItem("movieTitles"))
@@ -145,7 +145,7 @@ function saveMovie() {
     $(movieList).append(liTag);  
     }        
 }
-
+// Clears Previous Choices  (DI)
 $('#mClear').click(function(e) {
     $('#movieList').empty();
     $('#beerList').empty();
