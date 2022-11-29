@@ -145,6 +145,14 @@ function saveMovie() {
     $(movieList).append(liTag);  
     }        
 }
+
+$('#mClear').click(function(e) {
+    $('#movieList').empty();
+    $('#beerList').empty();
+    localStorage.clear();
+    
+})
+
 saveMovie();
 
 var beerList = $('#beerList');
