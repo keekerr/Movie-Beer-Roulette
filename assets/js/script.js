@@ -150,6 +150,7 @@ $('#mClear').click(function(e) {
     $('#movieList').empty();
     $('#beerList').empty();
     localStorage.clear();
+    location.reload()
     
 })
 
